@@ -9,7 +9,7 @@
 
 ## 🚀 Quickstart (60 seconds)
 ```bash
-git clone [<repo>](https://github.com/vxnkx/NaSHGO.git) && cd NaSHGO
+git clone https://github.com/vxnkx/NaSHGO.git && cd NaSHGO
 pip install -r requirements.txt
 cp config.example.yaml config.yaml
 echo "natgeo elonmusk" > data/usernames.txt
