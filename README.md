@@ -4,20 +4,26 @@ osint-geo-exif-harvester
 
 Harvests Instagram/Flickr images → extracts EXIF GPS → Shodan IoT overlay → Interactive map
 
-## Quickstart
+1. **Copy config**:
 ```bash
-cp config.example.yaml config.yaml  # Add Shodan key/proxies
-pip install -r requirements.txt
-python run.py @target1 @target2 -o myreport
-opsec: Tor proxy recommended, randomized UAs, rate-limited.
-
-## **Usage**
-```bash
-# Copy config, add Shodan key
 cp config.example.yaml config.yaml
+nano config.yaml  # Edit 4 lines ONLY 👇
+```
 
-# Harvest
-python run.py john_doe jane_smith -o target_report
+2. add your keys:
+```bash
+shodan_api_key: "your_key"           # shodan.io (FREE)
+telegram_bot_token: "bot_token"      # @BotFather 
+telegram_chat_id: "123456789"        # Message bot /start
+proxies.http: "socks5://127.0.0.1:9050"  # Tor optional
+```
 
-# With Tor (docker run -p 9050:9050 -d torproject/tor)
-python run.py @target -c config.yaml
+3. Tor (optional OPSEC):
+```bash
+docker run -d --name tor -p 9050:9050 oberthur/docker-tor
+```
+
+3. Run:
+```bash
+python run.py elonmusk --telegram
+```
