@@ -7,3 +7,5 @@ geopy
 shodan
 PyYAML
 tqdm
+python-telegram-bot
+qrcode[pil]
