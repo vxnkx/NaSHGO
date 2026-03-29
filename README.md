@@ -9,7 +9,7 @@
 
 ## 🚀 Quickstart (60 seconds)
 ```bash
-git clone <repo> && cd GeoImageHarvester
+git clone [<repo>](https://github.com/vxnkx/NaSHGO.git) && cd NaSHGO
 pip install -r requirements.txt
 cp config.example.yaml config.yaml
 echo "natgeo elonmusk" > data/usernames.txt
@@ -39,6 +39,11 @@ $ python run.py target1 target2 --telegram
 📱 Telegram: QR code to interactive map sent
 📊 Report: output/georeport.html
 
+🐳 Docker (Zero Setup)
+```bash
+docker build -t geoharvester .
+docker run -v $(pwd)/output:/app/output geoharvester natgeo
+```
 Pro Tips
 
 # Stealth mode (Tor + slow rate limit)
