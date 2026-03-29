@@ -1,0 +1,32 @@
+# ============================================
+# NaSHGO opsec Configuration
+# Copy to config.yaml and EDIT the values below
+# ============================================
+
+# API Keys (Free tiers work)
+shodan_api_key: "YOUR_SHODAN_API_KEY_HERE"          # shodan.io/account/apikey
+telegram_bot_token: "1234567890:ABCdefGhIjKlMnOpQrStUvWxYz"  # @BotFather /newbot
+telegram_chat_id: "123456789"                       # Message your bot /start → copy ID
+
+# opsec Proxies (Tor recommended)
+proxies:
+  http: "socks5://127.0.0.1:9050"     # docker run -p 9050:9050 oberthur/docker-tor
+  https: "socks5://127.0.0.1:9050"    # Leave empty {} for direct
+
+# harvest Settings
+user_agents:                                          # Auto-rotates
+  - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+  - "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+
+rate_limit: 2.5            # Seconds between requests (opsec)
+max_threads: 5             # Parallel downloads
+max_images_per_profile: 50 # Instagram/Flickr limit
+
+# Output
+output_format: "html+telegram"  # html, json, telegram, all
+shodan_radius_km: 1.0      # Nearby device search radius
+
+# Advanced opsec
+tor_circuit_rotation: true     # Restart Tor every N requests
+request_timeout: 15
