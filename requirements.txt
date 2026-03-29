@@ -1,0 +1,9 @@
+requests
+beautifulsoup4
+Pillow
+exifread
+folium
+geopy
+shodan
+PyYAML
+tqdm
