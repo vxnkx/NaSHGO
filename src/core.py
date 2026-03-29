@@ -141,3 +141,14 @@ def main():
     from .report import generate_html_report
     generate_html_report(results, f"{args.output}/georeport.html")
     print(f"[+] Report: {args.output}/georeport.html")
+
+async def send_telegram_report(self, username):
+    """Async Telegram dispatch"""
+    from .telegram import TelegramReporter
+    reporter = TelegramReporter(self.config)
+    await reporter.send_georeport(self.results, username)
+
+# In main(), after generate_html_report():
+if self.config.get('telegram_bot_token'):
+    import asyncio
+    asyncio.run(self.send_telegram_report(args.usernames[0]))
