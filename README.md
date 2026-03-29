@@ -7,7 +7,7 @@
 4. Finds nearby Shodan devices (IoT/cameras)
 5. Telegram alerts + interactive HTML maps
 
-## 🚀 Quickstart (60 seconds)
+## 🚀 Quickstart
 ```bash
 git clone https://github.com/vxnkx/NaSHGO.git && cd NaSHGO
 pip install -r requirements.txt
