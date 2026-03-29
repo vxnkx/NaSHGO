@@ -1,6 +1,5 @@
 # NaSHGO
 osint-geo-exif-harvester
-# GeoImageHarvester
 **OPSEC-aware image geolocation OSINT tool**
 
 Harvests Instagram/Flickr images → extracts EXIF GPS → Shodan IoT overlay → Interactive map
