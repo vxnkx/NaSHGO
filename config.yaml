@@ -1,12 +1,22 @@
 # opsec config - edit & gitignore this file
-telegram_bot_token: "YOUR_BOT_TOKEN"  # @BotFather
-telegram_chat_id: "YOUR_CHAT_ID"  #@userinfobot
 shodan_api_key: "YOUR_SHODAN_KEY"  # Free tier OK
+telegram_bot_token: "YOUR_BOT_TOKEN"  # @BotFather
+telegram_chat_id: "YOUR_CHAT_ID"
+
 proxies:
   http: "socks5://127.0.0.1:9050"   # Tor or HTTP proxy
   https: "socks5://127.0.0.1:9050"
+
 user_agents:
-  - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-  - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-rate_limit: 2.5  # seconds between requests
-max_threads: 5
+  - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15"
+
+rate_limit: 3.0
+max_threads: 3
+max_images_per_profile: 30
+
+output_format: "html+telegram"
+shodan_radius_km: 0.5
+
+tor_circuit_rotation: true
+request_timeout: 20
