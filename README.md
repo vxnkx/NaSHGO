@@ -38,11 +38,6 @@ $ python run.py target1 target2 --telegram
 ✅ GEOLOCATED: target1 (30.123456, -97.654321) → "123 Main St, Austin TX"
 📱 Telegram: QR code to interactive map sent
 📊 Report: output/georeport.html
-🐳 Docker (Zero Setup)
-```bash
-docker build -t geoharvester .
-docker run -v $(pwd)/output:/app/output geoharvester natgeo
-```
 
 Pro Tips
 
