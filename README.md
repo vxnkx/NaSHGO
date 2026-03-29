@@ -1,29 +1,57 @@
-# NaSHGO
-osint-geo-exif-harvester
-**OPSEC-aware image geolocation OSINT tool**
+# NaSHGO OSINT Geolocation Tool
 
-Harvests Instagram/Flickr images → extracts EXIF GPS → Shodan IoT overlay → Interactive map
+## 🎯 What It Does
+1. Harvests public images from Instagram/Flickr/Twitter  
+2. Extracts GPS EXIF coordinates
+3. Reverse geocodes → addresses/cities
+4. Finds nearby Shodan devices (IoT/cameras)
+5. Telegram alerts + interactive HTML maps
 
-1. **Copy config**:
+## 🚀 Quickstart (60 seconds)
 ```bash
+git clone <repo> && cd GeoImageHarvester
+pip install -r requirements.txt
 cp config.example.yaml config.yaml
-nano config.yaml  # Edit 4 lines ONLY 👇
+echo "natgeo elonmusk" > data/usernames.txt
+python run.py natgeo elonmusk
+```
+⚙️ Config Setup
+```bash
+# 1. Get free API keys
+curl https://account.shodan.io/api-key  # Copy to config.yaml
+@BotFather /newbot → Get telegram_bot_token
+```
+# 2. Edit config.yaml (gitignored)
+```bash
+vim config.yaml  # Add your keys + Tor proxy
+```
+# 3. Tor proxy (optional opsec)
+```bash
+docker run -d -p 9050:9050 oberthur/docker-tor
+```
+📋 Full Workflow
+```bash
+$ python run.py target1 target2 --telegram
 ```
 
-2. add your keys:
+[+] Harvesting target1 (30 images)
+✅ GEOLOCATED: target1 (30.123456, -97.654321) → "123 Main St, Austin TX"
+📱 Telegram: QR code to interactive map sent
+📊 Report: output/georeport.html
+🐳 Docker (Zero Setup)
 ```bash
-shodan_api_key: "your_key"           # shodan.io (FREE)
-telegram_bot_token: "bot_token"      # @BotFather 
-telegram_chat_id: "123456789"        # Message bot /start
-proxies.http: "socks5://127.0.0.1:9050"  # Tor optional
+docker build -t geoharvester .
+docker run -v $(pwd)/output:/app/output geoharvester natgeo
 ```
 
-3. Tor (optional OPSEC):
-```bash
-docker run -d --name tor -p 9050:9050 oberthur/docker-tor
-```
+Pro Tips
 
-3. Run:
-```bash
-python run.py elonmusk --telegram
-```
+# Stealth mode (Tor + slow rate limit)
+rate_limit: 5.0
+proxies: socks5://127.0.0.1:9050
+
+# Max speed
+max_threads: 10
+rate_limit: 0.5
+# Shodan nearby cameras
+shodan_radius_km: 2.0
